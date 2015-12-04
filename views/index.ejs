@@ -5,9 +5,10 @@
   <title>My app</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.4.8/angular-animate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="/javascripts/angularApp.js"></script>
-  <script src="http://code.angularjs.org/1.4.8/angular-animate.min.js"></script>
+
   <style type="text/css">
     .glyphicon-thumbs-up {
       cursor: pointer;
@@ -25,6 +26,7 @@
 
     <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
       <ul class="nav navbar-nav">
+        <li><a href="#/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
         <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
         <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
@@ -40,6 +42,11 @@
       <ui-view></ui-view>
     </div>
   </div>
+
+
+
+
+
 
 
 
@@ -61,8 +68,8 @@
       <a ng-show="post.link" href="{{post.link}}" target="_blank">{{post.title}}</a>
 
       <span ng-hide="post.link"> {{post.title}}</span>
-      <span style="float:right;">|
-      <a ng-href="#/posts/{{post._id}}"> comments</a>
+      <span style="margin-left:3em;">|
+      <a style="margin-left:3em;"  ng-href="#/posts/{{post._id}}">View comments ({{post.comments.length}})</a>
       </span>
 
       </span>
@@ -81,7 +88,7 @@
         <input class="form-control" type="text" placeholder="Link" ng-model="link" />
       </div>
 
-      <button type="submit">Post</button>
+      <button type="submit" class="btn btn-primary">Post</button>
 
     </form>
 
