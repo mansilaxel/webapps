@@ -1,6 +1,5 @@
 var app = angular.module('flapperNews', [
-  'ui.router',
-  'ngAnimate',
+  'ui.router'
   ]);
 
 
@@ -248,6 +247,7 @@ function($scope, $state, auth) {
 		});
 	};
 }]);
+
 
 app.controller('NavCtrl', ['$scope', 'auth',
 function($scope, auth) {
